@@ -1,0 +1,372 @@
+/*background color of all pages*/
+:root {
+  --bs-body-bg: rgb(245, 245, 247);
+}
+
+/* Make the body a flex container with column direction */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  margin: 0; /* remove default body margin */
+}
+
+/* Make main content take all available space */
+main {
+  flex: 1 0 auto; /* grow to fill space, don't shrink below content */
+}
+
+/* Footer stays at the bottom */
+footer {
+  flex-shrink: 0; /* don't let footer shrink */
+}
+
+.navbar {
+  --bs-navbar-toggler-border-color: none;
+  --bs-navbar-toggler-focus-width: none;
+}
+
+.navbar-toggler:focus {
+  outline: 2px solid rgba(13, 110, 253, 1);
+  /*outline-offset: 2px;*/
+}
+
+.overflow-x {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+a:hover,
+a:focus,
+a:active {
+  color:  var(--bs-link-color) ; 
+}
+*/
+
+p {
+  color: black;
+}
+
+.hover-underline {
+  position: relative; /* anchor is positioning context */
+  display: inline-block; /* makes width match text, not parent */
+  width: fit-content; /* shrink to text width on all devices */
+}
+
+.hover-underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* just under the text */
+  height: 3px;
+  width: 100%; /* matches link text width */
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+  pointer-events: none;
+}
+
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
+
+/* adds scroller on the right side of browser so all pages look consistent */
+.scrolly {
+  overflow-y: scroll;
+}
+
+.card {
+  --bs-card-border-width: 0px;
+  /*outline: 1px solid rgb(237, 237, 240);*/
+  background-color: none;
+  background: none;
+}
+
+.card-title {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.card-subtitle {
+  text-decoration: none;
+  color: rgb(108, 117, 125);
+  font-weight: 400;
+}
+
+.text-blue {
+  color: #0d6efd; /*default color of links*/
+  /*color: rgb(0, 0, 255);*/
+}
+
+.text-green {
+  color: rgb(0, 128, 0);
+}
+
+.text-yellow {
+  color: orange;
+}
+
+.text-orange {
+  color: rgb(255, 100, 0);
+}
+
+.text-black {
+  color: black;
+}
+
+.text-blossom {
+  color: rgb(249, 73, 94);
+}
+
+.text-buttercup {
+  color: rgb(81, 184, 51);
+}
+
+.text-bubbles {
+  color: rgb(51, 179, 238);
+}
+
+.max-width-90 {
+  max-width: 90%;
+}
+
+.homebody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Home page main should not stretch */
+.homebody main {
+  flex: 0 0 auto; /* don’t grow or shrink, just size to content */
+}
+
+.homecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /*position: relative;
+    top: -10px;*/
+}
+
+/*.hover-expand{
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+
+}
+.hover-expand:hover {
+  font-variation-settings: "wght" 582;
+  letter-spacing: 2px;
+}*/
+
+.homeintro {
+  font-size: clamp(3rem, 5vw, 5rem);
+  /*Min: 2rem → the smallest the font will ever be (on tiny screens).
+    Preferred: 5vw → scales based on viewport width (vw = viewport width unit).
+    1vw = 1% of the viewport’s width.
+    So, 5vw means “make the font size 5% of the current window width.”
+    Max: 5rem → the largest it will ever be (on wide screens).*/
+  margin: 0;
+  font-weight: 400;
+  color: black;
+  /*color: #777;*/
+
+  white-space: nowrap; /* keeps it on one line */
+}
+
+.homeintroname {
+  color: black;
+  /* #007bff; /* blue name */
+  font-weight: 700;
+}
+
+.hometitles {
+  opacity: 0;
+  transition: opacity 0.5s; /* default fade duration, will be overwritten by JS */
+  color: grey;
+  font-weight: 400;
+  white-space: nowrap; /* keeps it on one line */
+}
+
+.homelinks {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.homelinks a {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+/* homelinks - Responsive: vertical links on narrow screens */
+@media (max-width: 600px) {
+  .homelinks {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center; /* center each link horizontally */
+  }
+}
+
+/*this bit is tied to lines 118-130 in common.js 
+it is heralded with the comment "//WAIT TO SHOW INDEX PAGE CONTENTS" */
+.fade-content {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease-in;
+}
+.fade-content.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*-----TOGGLE SHOW HIDE BLOG SECTION TITLE BUTTONS-----*/
+/* Make toggle buttons look like real buttons */
+#blog-sections .toggle-section-btn {
+  /*all: unset;*/
+  cursor: pointer;
+  display: inline-block;
+
+  width: 96%;
+  text-align: center;
+  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
+  font-weight: 700;
+  /*background-color: #1d1d1f; */
+  background-color: black; /* #0d6efd;*/
+  color: rgb(
+    245,
+    245,
+    247
+  ); /* color of background as set at the top of this file*/
+  border: none; /* reset border */
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none; /* disable default button styling on older Android */
+  appearance: none;
+}
+
+/* Hover effect */
+/*#blog-sections .toggle-section-btn:hover {
+  /*background-color: #0a58ca;
+  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
+}*/
+
+/* Active / pressed effect 
+#blog-sections .toggle-section-btn:active { 
+  /*background-color: #004080;
+  /*background-color: #3a3a3c;     Even lighter on press 
+} */
+
+/* Focus / accessibility outline */
+#blog-sections .toggle-section-btn:focus {
+  outline: 3px solid rgba(13, 110, 253, 1);
+  outline-offset: 2px;
+}
+
+/* Hide articles when section is collapsed */
+#blog-sections section[data-collapsed="true"] .articles {
+  display: none !important;
+}
+
+/*-----TOGGLE SHOW HIDE LITERATURE SECTION TITLE BUTTONS-----*/
+/* Make toggle buttons look like real buttons */
+#literature-sections .toggle-section-btn {
+  /*all: unset;*/
+  cursor: pointer;
+  display: inline-block;
+
+  width: 96%;
+  text-align: center;
+  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
+  font-weight: 700;
+  /*background-color: #1d1d1f; */
+  background-color: black;
+  color: rgb(
+    245,
+    245,
+    247
+  ); /* color of background as set at the top of this file*/
+  border: none; /* reset border */
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none; /* disable default button styling on older Android */
+  appearance: none;
+}
+
+/* Hover effect */
+/* #literature-sections .toggle-section-btn:hover {
+  /*background-color: #0a58ca;
+  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
+}*/
+
+/* Active / pressed effect */
+/* #literature-sections .toggle-section-btn:active {
+  /*background-color: #004080;
+  /*background-color: #3a3a3c;     Even lighter on press 
+} */
+
+/* Focus / accessibility outline */
+#literature-sections .toggle-section-btn:focus {
+  outline: 3px solid rgba(13, 110, 253, 1);
+  outline-offset: 2px;
+}
+
+/* Hide articles when section is collapsed */
+#literature-sections section[data-collapsed="true"] .articles {
+  display: none !important;
+}
+
+/*-----TOGGLE SHOW HIDE LITERATURE ARTICLES BUTTONS-----*/
+/* Make toggle buttons look like real buttons */
+.toggle-article-btn {
+  /*all: unset;*/
+  cursor: pointer;
+  display: inline-block;
+
+  width: 96%;
+  text-align: center;
+  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
+  font-weight: 700;
+  /*background-color: #1d1d1f; */
+  background-color: #d0d0d6;
+  color: black; /* color of background as set at the top of this file*/
+  border: none; /* reset border */
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none; /* disable default button styling on older Android */
+  appearance: none;
+}
+
+/* Hover effect 
+.toggle-article-btn:hover { */
+  /*background-color: #b9b9c0;
+  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
+} */
+
+/* Active / pressed effect 
+.toggle-article-btn:active { */
+  /*background-color: #a2a2ab;
+  /*background-color: #3a3a3c;     Even lighter on press 
+}*/
+
+/* Focus / accessibility outline */
+.toggle-article-btn:focus {
+  outline: 3px solid rgba(13, 110, 253, 1);
+  outline-offset: 2px;
+}
+
+
