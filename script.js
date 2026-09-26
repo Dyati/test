@@ -168,62 +168,126 @@ window.addEventListener("load", () =>
     document.getElementById("homebody").classList.add("visible");
   }, 250);
 
-  /* Fade in hometitles after 1.0 seconds (1000 ms)
+  /* Fade in herokicker after 1.0 seconds (1000 ms)
   setTimeout(() => {
-    document.getElementById("hometitles").classList.add("visible");
+    document.getElementById("herokicker").classList.add("visible");
   }, 2000);*/
 });
 
-//------------LOOP CAROUSEL OF TITLES ON HOME PAGE------------
-// List of titles to cycle through
-const hometitles = [
-  "Artist",
-  "Author",
-  "Teacher",
-  "Philosopher",
-  "Research Scholar",
-  "Indie Game Developer"
-];
 
-// Configuration variables (all times in milliseconds)
-const homeTitlesFadeTime = 250; // duration of fade in/out
-const hometitlesHoldTime = 2000; // time title stays fully visible
-const homeTitlesWaitTime = 0; // time to wait before showing the next title
+/* =========================================================
+   HOME TITLE ROTATION
+   ========================================================= */
 
-// Select the HTML element where the titles will appear
-const titleEl = document.querySelector(".hometitles");
+function initializeHomeTitleRotation() {
+  const titleElement =
+    document.getElementById(
+      "home-title-cycle"
+    );
 
-// Update the CSS transition property based on fadeTime
-// This makes the fade duration dynamic based on our configuration
-titleEl.style.transition = `opacity ${homeTitlesFadeTime / 1000}s`;
+  if (!titleElement) {
+    return;
+  }
 
-// Index to keep track of the current title in the array
-let homeTitlesIndex = 0;
 
-// Function to show the next title
-function showNextTitle()
-{
-  // Set the current title text
-  titleEl.textContent = hometitles[homeTitlesIndex];
+  const titles = [
+    "Artist",
+    "Author",
+    "Teacher",
+    "Philosopher",
+    "Research Scholar",
+    "Indie Game Developer"
+  ];
 
-  // Fade in the title by setting opacity to 1
-  titleEl.style.opacity = 1;
 
-  // After the title has been visible for 'hometitlesHoldTime', start fading out
-  setTimeout(() =>
-  {
-    titleEl.style.opacity = 0; // fade out
+  const fadeDuration = 250;
+  const displayDuration = 1250;
 
-    // Wait for the fade out to finish before moving to the next title
-    setTimeout(() =>
-    {
-      // Move to the next title in the array
-      homeTitlesIndex = (homeTitlesIndex + 1) % hometitles.length;
+  let titleIndex = 0;
 
-      // Wait 'homeTitlesWaitTime' before starting fade-in for the next title
-      setTimeout(showNextTitle, homeTitlesWaitTime);
-    }, homeTitlesFadeTime); // this delay matches the fade-out duration
-  }, hometitlesHoldTime); // this delay matches the hold duration
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+
+  titleElement.style.transition =
+    `opacity ${fadeDuration}ms ease`;
+
+
+  function showNextTitle() {
+    titleElement.textContent =
+      titles[titleIndex];
+
+
+    if (reducedMotion.matches) {
+      titleIndex =
+        (titleIndex + 1) %
+        titles.length;
+
+      window.setTimeout(
+        showNextTitle,
+        3000
+      );
+
+      return;
+    }
+
+
+    titleElement.style.opacity =
+      "1";
+
+
+    window.setTimeout(
+      () => {
+        titleElement.style.opacity =
+          "0";
+      },
+      displayDuration
+    );
+
+
+    window.setTimeout(
+      () => {
+        titleIndex =
+          (titleIndex + 1) %
+          titles.length;
+
+        showNextTitle();
+      },
+      displayDuration +
+        fadeDuration
+    );
+  }
+
+
+  showNextTitle();
 }
-// Start the loop for cycling titles
-showNextTitle();
+
+/* =========================================================
+   INITIALIZATION
+   ========================================================= */
+
+function initializeSite() {
+  initializeHomeTitleRotation();
+}
+
+
+/* =========================================================
+   START SITE
+   ========================================================= */
+
+if (
+  document.readyState ===
+  "loading"
+) {
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeSite,
+    {
+      once: true
+    }
+  );
+} else {
+  initializeSite();
+}
