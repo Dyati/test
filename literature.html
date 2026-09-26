@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html class="scrolly" lang="en">
+<html class="page-scroll" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="-1" />
-    <site-assets></site-assets>
+    <site-assets-loader></site-assets-loader>
     <script type="module" src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <goat-counter></goat-counter>
+    <analytics-counter></analytics-counter>
     <title>Literature</title>
   </head>
 
   <body>
     <main class="container-lg" role="main" aria-label="Literature main content">
       <header>
-        <my-header></my-header>
+        <site-header></site-header>
       </header>
 
-      <div id="literature-sections" class="row">
+      <div id="literature-content" class="row">
         <!-- Poems column -->
         <div class="col-12 col-md-6 col-lg-6">
           <section aria-labelledby="poems" id="section-poems">
             <h2 id="poems">
               <button
                 type="button"
-                class="toggle-section-btn"
+                class="section-toggle"
                 aria-expanded="true"
-                aria-controls="poems-articles"
+                aria-controls="poem-articles"
               >
                 Poems
               </button>
             </h2>
 
-            <div class="articles" id="poems-articles">
+            <div class="articles" id="poem-articles">
               <!-- Article -->
               <article class="card px-0" role="region" aria-label="Nightingale">
                 <div class="card-body px-0 py-0">
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="nightingale-body"
                     >
                       Nightingale
                     </button>
                   </h5>
-                  <div id="nightingale-body" class="article-body">
+                  <div id="nightingale-body" class="article-content">
                     <p class="lh-lg">
                       I have walked across a garden of souls. And there, I met a
                       noble nightingale, the sweetest soul that ever bloomed.
@@ -69,14 +69,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="voices-body"
                     >
                       Voices
                     </button>
                   </h5>
-                  <div id="voices-body" class="article-body">
+                  <div id="voices-body" class="article-content">
                     <p class="lh-lg">
                       The Moon spoke to me. Her voice was soft and certain. She
                       told me what to do, and I obeyed. It was easy... one voice,
@@ -103,14 +103,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="elephants-body"
                     >
                       Elephants
                     </button>
                   </h5>
-                  <div id="elephants-body" class="article-body">
+                  <div id="elephants-body" class="article-content">
                     <p class="lh-lg">
                       The moon blinked. Pious peasants prayed. Elephants marched
                       under the stars. Hideous thunders flooded the streets.
@@ -131,14 +131,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="expression-body"
                     >
                       Expression
                     </button>
                   </h5>
-                  <div id="expression-body" class="article-body">
+                  <div id="expression-body" class="article-content">
                     <p class="lh-lg">
                       The stars painted tempests on thousand canvas. A river of
                       roars quenched heart's hunger. Enlightened cosmos
@@ -163,14 +163,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="puddle-body"
                     >
                       Shape of My Puddle
                     </button>
                   </h5>
-                  <div id="puddle-body" class="article-body">
+                  <div id="puddle-body" class="article-content">
                     <p class="lh-lg">
                       At the other end of the world, sickness dawned upon my
                       dearest. Upon the barren blood of hundred million dead
@@ -210,14 +210,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="puzzle-body"
                     >
                       Puzzle in a River
                     </button>
                   </h5>
-                  <div id="puzzle-body" class="article-body">
+                  <div id="puzzle-body" class="article-content">
                     <p class="lh-lg">
                       Eighty pieces of puzzle riddled down the river. Salty
                       stream pulled on my strings. No two pieces fashioned
@@ -239,14 +239,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="untethered-body"
                     >
                       Untethered
                     </button>
                   </h5>
-                  <div id="untethered-body" class="article-body">
+                  <div id="untethered-body" class="article-content">
                     <p class="lh-lg">
                       A saffron sky dawned on us. All our scars on the table.
                       The clock racing against the hearts in our hands. Tethered
@@ -272,14 +272,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="space-body"
                     >
                       The Space Between
                     </button>
                   </h5>
-                  <div id="space-body" class="article-body">
+                  <div id="space-body" class="article-content">
                     <p class="lh-lg">
                       In a not so distant past, there lived a people who shared
                       a fantasy. Mountains of memories formed over many moons
@@ -323,14 +323,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="ocean-body"
                     >
                       Ocean of Voices
                     </button>
                   </h5>
-                  <div id="ocean-body" class="article-body">
+                  <div id="ocean-body" class="article-content">
                     <p class="lh-lg">
                       An ocean of voices condensed all around me. They are but
                       mirages in which I drowned. The air turned to cuttlefish.
@@ -355,15 +355,15 @@
             <h2 id="stories">
               <button
                 type="button"
-                class="toggle-section-btn"
+                class="section-toggle"
                 aria-expanded="true"
-                aria-controls="stories-articles"
+                aria-controls="story-articles"
               >
                 Stories
               </button>
             </h2>
 
-            <div class="articles" id="stories-articles">
+            <div class="articles" id="story-articles">
              
               <!-- Article -->
               <article class="card px-0" role="region" aria-label="Graham">
@@ -371,14 +371,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="graham-body"
                     >
                       Graham
                     </button>
                   </h5>
-                  <div id="graham-body" class="article-body">
+                  <div id="graham-body" class="article-content">
                     <p class="lh-lg">
                       Graham, a rather young planet in a distant world,
                       commanded an attraction unlike any other in her system.
@@ -494,14 +494,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="forbidden-body"
                     >
                       The Forbidden Island
                     </button>
                   </h5>
-                  <div id="forbidden-body" class="article-body">
+                  <div id="forbidden-body" class="article-content">
                     <p class="lh-lg">
                       <em
                         >"In truth, there was only one Christian, and he died on
@@ -605,14 +605,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="lamp-body"
                     >
                       The Lamp on the Bridge
                     </button>
                   </h5>
-                  <div id="lamp-body" class="article-body">
+                  <div id="lamp-body" class="article-content">
                     <p class="lh-lg">
                       <em
                         >"The modern barbarity of 'saving' the suicidal is based
@@ -659,14 +659,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="birds-body"
                     >
                       Birds of the Sky
                     </button>
                   </h5>
-                  <div id="birds-body" class="article-body">
+                  <div id="birds-body" class="article-content">
                     <p class="lh-lg">
                       Strange, winged creatures stood still in the shade of a
                       cracked wall. Their feathers were of colour akin to that
@@ -732,14 +732,14 @@
                   <h5 class="card-title fw-bold">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="article-toggle"
                       aria-expanded="false"
                       aria-controls="liminal-body"
                     >
                       Liminal Express
                     </button>
                   </h5>
-                  <div id="liminal-body" class="article-body">
+                  <div id="liminal-body" class="article-content">
                     <p class="lh-lg">
                       The glass, tinted unevenly, did not open. On the other
                       side are a great many windows placed symmetrically on
@@ -793,14 +793,14 @@
     </main>
 
     <footer role="contentinfo" aria-label="Footer navigation">
-      <footer-nav></footer-nav>
+      <site-footer></site-footer>
     </footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // SECTION TOGGLES
         document
-          .querySelectorAll("#literature-sections .toggle-section-btn")
+          .querySelectorAll("#literature-content .section-toggle")
           .forEach((btn) => {
             btn.setAttribute("type", "button");
             const section = btn.closest("section");
@@ -830,7 +830,7 @@
           });
 
         // ARTICLE TOGGLES
-        document.querySelectorAll(".toggle-article-btn").forEach((btn) => {
+        document.querySelectorAll(".article-toggle").forEach((btn) => {
           btn.setAttribute("type", "button");
           const body = document.getElementById(
             btn.getAttribute("aria-controls")

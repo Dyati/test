@@ -1,5 +1,5 @@
 //------------ADD GOAT COUNTER------------
-class GoatCounter extends HTMLElement
+class AnalyticsCounter extends HTMLElement
 {
   connectedCallback()
   {
@@ -9,7 +9,7 @@ class GoatCounter extends HTMLElement
     // 1. Check if the script has already been added to prevent duplicates
     if (document.head.querySelector('script[data-goatcounter]'))
     {
-      // console.log("GoatCounter script already initialized.");
+      // console.log("AnalyticsCounter script already initialized.");
       return;
     }
 
@@ -17,7 +17,7 @@ class GoatCounter extends HTMLElement
     const script = document.createElement('script');
 
     // 3. Set the required attributes
-    // This attribute tells GoatCounter where to send the data.
+    // This attribute tells AnalyticsCounter where to send the data.
     script.setAttribute('data-goatcounter', 'https://epicsteme.goatcounter.com/count');
 
     // The async attribute is required for non-blocking loading
@@ -36,10 +36,10 @@ class GoatCounter extends HTMLElement
 }
 
 //------------IMPLEMENT GOAT COUNTER------------
-customElements.define("goat-counter", GoatCounter);
+customElements.define("analytics-counter", AnalyticsCounter);
 
 //------------ADD HEADER NAVIGATION------------
-class MyHeader extends HTMLElement
+class SiteHeader extends HTMLElement
 {
   connectedCallback()
   {
@@ -56,23 +56,23 @@ class MyHeader extends HTMLElement
                 
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-navigation" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            <div class="collapse navbar-collapse" id="mobile-navigation">
                 <ul class="navbar-nav ms-auto" role="menubar">
                     <li class="ms-3 mb-3" role="none">
-                        <a class="text-black hover-underline" href="./" role="menuitem"> Home </a>
+                        <a class="text-black link-underline" href="./" role="menuitem"> Home </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
-                    <a class="text-black hover-underline" href="art.html" role="menuitem"> Art </a>
+                    <a class="text-black link-underline" href="art.html" role="menuitem"> Art </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
-                    <a class="text-black hover-underline" href="photography.html" role="menuitem"> Photography </a>
+                    <a class="text-black link-underline" href="photography.html" role="menuitem"> Photography </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
-                        <a class="text-black hover-underline" href="literature.html" role="menuitem"> Literature </a>
+                        <a class="text-black link-underline" href="literature.html" role="menuitem"> Literature </a>
                     </li>
                 </ul>
             </div>
@@ -83,12 +83,12 @@ class MyHeader extends HTMLElement
 }
 
 //------------IMPLEMENT FUNCTION HEADER------------
-customElements.define("my-header", MyHeader);
+customElements.define("site-header", SiteHeader);
 
 //
 
 //------------ADD FOOTER NAVIGATION------------
-class FooterNav extends HTMLElement
+class SiteFooter extends HTMLElement
 {
   connectedCallback()
   {
@@ -97,10 +97,10 @@ class FooterNav extends HTMLElement
     <hr class="container-lg">
     <nav aria-label="Footer site links">
         <ul class="list-inline mb-2" role="menubar">
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="./" role="menuitem">Home</a></li>
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="art.html" role="menuitem">Art</a></li>
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="photography.html" role="menuitem">Photography</a></li>
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="literature.html" role="menuitem">Literature</a></li>
+            <li class="list-inline-item link-underline" role="link"><a class="text-black" href="./" role="menuitem">Home</a></li>
+            <li class="list-inline-item link-underline" role="link"><a class="text-black" href="art.html" role="menuitem">Art</a></li>
+            <li class="list-inline-item link-underline" role="link"><a class="text-black" href="photography.html" role="menuitem">Photography</a></li>
+            <li class="list-inline-item link-underline" role="link"><a class="text-black" href="literature.html" role="menuitem">Literature</a></li>
         </ul>
         
     </nav>
@@ -110,18 +110,18 @@ class FooterNav extends HTMLElement
 }
 
 //------------IMPLEMENT FUNCTION FOOTER------------
-customElements.define("footer-nav", FooterNav);
+customElements.define("site-footer", SiteFooter);
 
 //------------LOAD BOOTSTRAP CSS AND JS FROM A CDN------------
-class SiteAssets extends HTMLElement
+class SiteAssetsLoader extends HTMLElement
 {
   connectedCallback()
   {
     // Add Bootstrap CSS CDN
-    if (!document.getElementById("bootstrap-css-cdn"))
+    if (!document.getElementById("bootstrap-css"))
     {
       const link = document.createElement("link");
-      link.id = "bootstrap-css-cdn";
+      link.id = "bootstrap-css";
       link.rel = "stylesheet";
       link.href =
         "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css";
@@ -132,10 +132,10 @@ class SiteAssets extends HTMLElement
     }
 
     // Add BOOTSTRAP JS CDN
-    if (!document.getElementById("bootstrap-js-cdn"))
+    if (!document.getElementById("bootstrap-js"))
     {
       const script = document.createElement("script");
-      script.id = "bootstrap-js-cdn";
+      script.id = "bootstrap-js";
       script.src =
         "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js";
       script.integrity =
@@ -156,21 +156,21 @@ class SiteAssets extends HTMLElement
 }
 
 // ------------IMPLEMENT FUNCTION TO LOAD BOOTSTRAP ASSETS------------
-customElements.define("site-assets", SiteAssets);
+customElements.define("site-assets-loader", SiteAssetsLoader);
 
 // ------------WAIT TO SHOW INDEX PAGE CONTENTS------------
-// this seems to be tied to "fade-content" and "fade-content.visible" in custom.css
+// this seems to be tied to "page-fade" and "page-fade.visible" in custom.css
 window.addEventListener("load", () =>
 {
-  // Fade in homeintro after 0.25 seconds (250 ms)
+  // Fade in hero-title after 0.25 seconds (250 ms)
   setTimeout(() =>
   {
-    document.getElementById("homebody").classList.add("visible");
+    document.getElementById("home-page").classList.add("visible");
   }, 250);
 
-  /* Fade in herokicker after 1.0 seconds (1000 ms)
+  /* Fade in hero-subtitle after 1.0 seconds (1000 ms)
   setTimeout(() => {
-    document.getElementById("herokicker").classList.add("visible");
+    document.getElementById("hero-subtitle").classList.add("visible");
   }, 2000);*/
 });
 
@@ -183,7 +183,7 @@ function initializeHomeTitleRotation()
 {
   const titleElement =
     document.getElementById(
-      "home-title-cycle"
+      "hero-role"
     );
 
   if (!titleElement)
@@ -300,3 +300,4 @@ if (
 {
   initializeSite();
 }
+
