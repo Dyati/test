@@ -196,7 +196,7 @@ function initializeHomeTitleRotation()
     "Artist",
     "Author",
     "Teacher",
-    "Philosopher",
+    "Photographer",
     "Research Scholar",
     "Indie Game Developer"
   ];
